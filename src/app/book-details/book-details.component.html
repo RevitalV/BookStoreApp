@@ -1,0 +1,40 @@
+<div class="container " *ngIf="currentBook" style=" margin-top:125px;">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>{{ currentBook.name }}</h2>
+      <p>{{ currentBook.description }}</p>
+      <h3>Price : {{currentBook.price}} &#8362;</h3>
+      <div class="btn-group" role="group">
+
+        <button type="button" class="btn btn-primary  mr-2" style="border-radius: 4px;"
+          (click)="addNewItem(f)">Add</button>
+
+        <div class="btn-group" role="group">
+
+          <button type="button" class="btn btn-danger btn-number" data-type="minus" (click)="onMinusClick(f)">
+            <!--span class="glyphicon glyphicon-minus"></span-->
+            <i class="fas fa-minus"></i>
+          </button>
+
+          <input type="text" class="form-control input-number" style="max-width: 80px;" (keypress)="onKey($event)"
+            value="{{currentBook.numOfItems}}" min="1" max="10" #f>
+
+          <button type="button" class="btn btn-success btn-number" data-type="plus" (click)="onPlusClick(f)">
+            <!--span class="glyphicon glyphicon-plus"></span-->
+            <i class="fas fa-plus"></i>
+          </button>
+
+        </div>
+
+      </div>
+      <div>
+        <p *ngIf="!success" class="text-left font-italic text-danger">Maximum amount allowed is
+          10 books</p>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <img [src]="currentBook.imagePath" alt="{{ currentBook.name }}" class="img-responsive" style="min-height: 150px;">
+
+    </div>
+  </div>
+</div>

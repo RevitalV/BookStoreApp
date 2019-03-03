@@ -1,0 +1,11 @@
+
+.image:hover {
+  cursor: pointer;
+  position:relative;
+  top:-5px;
+  left:-5px;
+  width:180px;
+  height:auto;
+  display:block;
+  z-index:999;
+}

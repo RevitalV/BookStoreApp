@@ -1,0 +1,30 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Your Shopping List</h4>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let book of books; index as i;">
+            <th scope="row">
+              <button type="button" class="close" aria-label="delete" (click)="removeItem(i)">
+                <span aria-hidden="true">&times;</span>
+              </button></th>
+            <td><img src="{{book.imagePath}}" alt="" style="max-height: 50px"></td>
+            <td>{{book.name}}</td>
+            <td>price : {{book.price}}</td>
+            <td>Number of items : {{book.numOfItems}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> Total sum : {{totalSum}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>

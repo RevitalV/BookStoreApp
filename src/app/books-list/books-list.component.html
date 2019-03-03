@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row" *ngIf="books" style=" margin-top:150px;">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let book of books ">
+
+          <app-book-item [book]="book"></app-book-item>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>

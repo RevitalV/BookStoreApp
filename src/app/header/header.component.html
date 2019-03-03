@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm navbar-light fixed-top py-4" style="background-color:lightseagreen; " id="main-nav">
+  <div class="container">
+    <a href="#home" class="navbar-brand">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Books_Flat_Icon_Vector.svg" width="50" height="50"
+        alt="">
+      <h4 class="d-inline align-middle">Books4 All</h4>
+    </a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/">Books
+            Catalog<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contact">
+            <span>Contact Us</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/shopping">
+            <i class="fas fa-shopping-cart"></i>
+            <span *ngIf="hasItems()" [innerText]="getNumOfItems()"></span>
+          </a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
