@@ -4,20 +4,23 @@ import { Book } from '../book.model';
 import { BooksDataService } from '../books-data.service';
 import { ShoppingListService } from '../shoppingList/shopping-list.service';
 
-
 @Component({
   selector: 'app-book-item',
   templateUrl: './book-item.component.html',
   styleUrls: ['./book-item.component.scss']
+
 })
 export class BookItemComponent implements OnInit {
 
   @Input() book: Book;
   @Input() numOfItems: number;
   success = true;
+  state = 'normal';
+
   constructor(private booksDataService: BooksDataService, private shoppingListService: ShoppingListService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   onSelect(id: number) {

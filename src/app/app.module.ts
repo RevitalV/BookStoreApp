@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { ContactComponent } from './contact/contact.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
