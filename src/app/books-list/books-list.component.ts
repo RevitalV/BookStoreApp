@@ -10,20 +10,9 @@ import { BooksDataService } from '../books-data.service';
 export class BooksListComponent implements OnInit {
 
 
-  books: Book[]; /*[
-    new Book('Cool1', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png'),
-    new Book('Cool2', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png'),
-    new Book('Cool3', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png'),
-    new Book('Cool4', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png'),
-    new Book('Cool1', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png'),
-    new Book('Cool5', 'ECB', 'English Book 6th grade', 'ECB',
-      'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png')
-  ];*/
+  books: Book[];
+
+
 
   constructor(private booksDataService: BooksDataService) {
     this.booksDataService.dataChanged.subscribe((data: Book[]) => {
@@ -35,5 +24,6 @@ export class BooksListComponent implements OnInit {
   ngOnInit() {
     this.booksDataService.getBooksData();
   }
+
 
 }

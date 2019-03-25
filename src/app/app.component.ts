@@ -9,5 +9,10 @@ import { ShoppingListService } from './shoppingList/shopping-list.service';
 })
 export class AppComponent {
   title = 'BookStoreApp';
-  constructor(private booksDataService: BooksDataService, private shoppingListService: ShoppingListService) { }
+  private searchTerm: string;
+
+  constructor(private booksDataService: BooksDataService, private shoppingListService: ShoppingListService) {
+
+  }
+
 }

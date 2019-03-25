@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Book } from './book.model';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,11 +24,14 @@ export class BooksDataService {
       'https://dqt7m27rg71w0.cloudfront.net/wp-content/uploads/2017/08/03083447/Cool_SB-copy.png')
   ];
 
+
+  private _searchTerm: string;
   dataChanged = new EventEmitter<Book[]>();
 
+  filteredBooksData: Book[];
 
   constructor() {
-
+    this.filteredBooksData = this.booksData;
   }
 
 
@@ -36,6 +40,28 @@ export class BooksDataService {
   }
 
   getBooksData() {
-    this.dataChanged.emit(this.booksData);
+    this.dataChanged.emit(this.filteredBooksData);
+  }
+
+  get searchTerm(): string {
+    return this._searchTerm;
+  }
+
+  set searchTerm(value: string) {
+    console.log('searchTerm : ' + value);
+    this._searchTerm = value;
+    if (this.filteredBooksData && value) {
+      console.log('searchTerm 2: ' + value);
+      this.filteredBooksData = this.filterBooks(value);
+
+    } else {
+      this.filteredBooksData = this.booksData;
+    }
+    this.dataChanged.emit(this.filteredBooksData);
+  }
+
+  filterBooks(value: string) {
+    return this.booksData.filter(book => book.name.toLowerCase().indexOf(value.toLowerCase()) !== -1);
   }
 }
+
